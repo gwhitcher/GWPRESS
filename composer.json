@@ -1,0 +1,16 @@
+{
+    "name": "gwhitcher/gwpress",
+    "description": "A low profile Wordpress clone by George Whitcher.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George Whitcher",
+            "email": "george@georgewhitcher.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6"
+    }
+}

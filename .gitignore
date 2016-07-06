@@ -1,0 +1,12 @@
+#ignore thumbnails created by windows
+Thumbs.db
+.idea
+.idea/
+/gw-includes/routes.php
+gw-config.php
+/vendor/
+.htaccess
+/gw-content/plugins/instagram/
+/gw-content/plugins/geolocation/
+/gw-content/plugins/gallery/
+/gw-content/uploads/gallery/

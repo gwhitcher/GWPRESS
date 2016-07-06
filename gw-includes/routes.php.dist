@@ -1,0 +1,257 @@
+<?php
+//Do not edit!
+function getCurrentUri()
+{
+    $basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
+    $uri = substr($_SERVER['REQUEST_URI'], strlen($basepath));
+    if (strstr($uri, '?')) $uri = substr($uri, 0, strpos($uri, '?'));
+    $uri = '/' . trim($uri, '/');
+    return $uri;
+}
+$base_url = getCurrentUri();
+$routes = array();
+$routes = explode('/', $base_url);
+foreach($routes as $route)
+{
+    if(trim($route) != '')
+        array_push($routes, $route);
+}
+$routing_uri = $_SERVER['REQUEST_URI'];
+
+//Pages OK to edit.
+//Install - OK to remove once installed just make sure to change the next statement from elseif to if.
+if($routes[1] == "install") {
+    $page_name = "install.php";
+    return $page_name;
+}
+//Theme posts
+elseif($routes[1] == 'blog' AND is_numeric($routes[2])) {
+    $page_name = "post.php";
+    return $page_name;
+}
+//Theme categories
+elseif($routes[1] == 'blog' AND $routes[2] == 'category') {
+    $page_name = "category.php";
+    return $page_name;
+}
+//Theme RSS
+elseif($routes[1] == 'rss') {
+    $page_name = "rss.php";
+    return $page_name;
+}
+//Theme sitemap
+elseif($routes[1] == 'sitemap') {
+    $page_name = "sitemap.php";
+    return $page_name;
+}
+//Theme contact
+elseif($routes[1] == 'contact') {
+    $page_name = "contact.php";
+    return $page_name;
+}
+//Admin dashboard
+elseif($routes[1] == 'admin' AND $routes[2] == 'dashboard') {
+    $page_name = "admin.php";
+    return $page_name;
+}
+//Admin search
+elseif($routes[1] == 'admin' AND $routes[2] == 'search') {
+    $page_name = "search.php";
+    return $page_name;
+}
+//Admin posts
+elseif($routes[1] == 'admin' AND $routes[2] == 'posts' AND $routes[3] == 'index.php') {
+    $page_name = "posts.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'posts' AND $routes[3] == 'add') {
+    $page_name = "post_add.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'posts' AND $routes[3] == 'edit') {
+    $page_name = "post_edit.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'posts' AND $routes[3] == 'delete') {
+    $page_name = "post_delete.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'posts') {
+    $page_name = "posts.php";
+    return $page_name;
+}
+//Admin categories
+elseif($routes[1] == 'admin' AND $routes[2] == 'categories' AND $routes[3] == 'index.php') {
+    $page_name = "categories.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'categories' AND $routes[3] == 'add') {
+    $page_name = "category_add.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'categories' AND $routes[3] == 'edit') {
+    $page_name = "category_edit.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'categories' AND $routes[3] == 'delete') {
+    $page_name = "category_delete.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'categories') {
+    $page_name = "categories.php";
+    return $page_name;
+}
+//Admin pages
+elseif($routes[1] == 'admin' AND $routes[2] == 'pages' AND $routes[3] == 'add') {
+    $page_name = "page_add.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'pages' AND $routes[3] == 'edit') {
+    $page_name = "page_edit.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'pages' AND $routes[3] == 'delete') {
+    $page_name = "page_delete.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'pages') {
+    $page_name = "pages.php";
+    return $page_name;
+}
+//Admin users
+elseif($routes[1] == 'admin' AND $routes[2] == 'users' AND $routes[3] == 'index.php') {
+    $page_name = "users.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'users' AND $routes[3] == 'add') {
+    $page_name = "user_add.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'users' AND $routes[3] == 'edit') {
+    $page_name = "user_edit.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'users' AND $routes[3] == 'delete') {
+    $page_name = "user_delete.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'users') {
+    $page_name = "users.php";
+    return $page_name;
+}
+//Admin uploads
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'index.php') {
+    $page_name = "uploads.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'view') {
+    $page_name = "upload_view.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'upload_file') {
+    $page_name = "upload_action.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'add') {
+    $page_name = "upload_add.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'edit') {
+    $page_name = "upload_edit.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'delete') {
+    $page_name = "upload_delete_file.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'folder') {
+    $page_name = "upload_create_folder.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'directory') {
+    $page_name = "upload_delete_folder.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'loadfolder') {
+    $page_name = "upload_load_folder.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads' AND $routes[3] == 'deletefile') {
+    $page_name = "upload_delete_file.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'uploads') {
+    $page_name = "uploads.php";
+    return $page_name;
+}
+//Admin navigation
+elseif($routes[1] == 'admin' AND $routes[2] == 'navigation' AND $routes[3] == 'index.php') {
+    $page_name = "navigation.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'navigation' AND $routes[3] == 'navigation_reorder') {
+    $page_name = "navigation_reorder.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'navigation' AND $routes[3] == 'add') {
+    $page_name = "navigation_add.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'navigation' AND $routes[3] == 'edit') {
+    $page_name = "navigation_edit.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'navigation' AND $routes[3] == 'delete') {
+    $page_name = "navigation_delete.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'navigation') {
+    $page_name = "navigation.php";
+    return $page_name;
+}
+//Admin update
+elseif($routes[1] == 'admin' AND $routes[2] == 'update') {
+    $page_name = "update.php";
+    return $page_name;
+}
+//Admin login and logout
+elseif($routes[1] == 'admin' AND $routes[2] == 'login') {
+    $page_name = "login.php";
+    return $page_name;
+}
+elseif($routes[1] == 'admin' AND $routes[2] == 'logout') {
+    $page_name = "logout.php";
+    return $page_name;
+}
+//Homepage pagination
+elseif($routes[1] == 'index.php') {
+    $page_name = "home.php";
+    return $page_name;
+}
+elseif($routes[0] == '') {
+    //Loads homepage
+    if(empty($routes[1])) {
+        $page_name = "home.php";
+    }
+    //GET fix for homepage
+    elseif(strpos($routing_uri,'/?') !== FALSE) {
+        $page_name = "home.php";
+    }
+    //Loads categories with just ID
+    elseif($routes[1] == 'category') {
+        $page_name = "category.php";
+    }
+    //Loads posts with just ID
+    elseif(is_numeric($routes[1])) {
+        $page_name = "post.php";
+    }
+    //Loads 404 if no route
+    elseif(strpos($routing_uri,'/admin') !== FALSE) {
+        $page_name = "404.php";
+    }
+    //Loads pages
+    else{
+        $page_name = "pages.php";
+    }
+    return $page_name;
+}

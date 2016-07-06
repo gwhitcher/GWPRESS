@@ -1,0 +1,32 @@
+<?php
+//Configuration file.  Please edit accordingly.  If you don't know leave it as is.
+define('BASE_URL', 'http://gwpress');
+define('SITE_TITLE', 'GWPRESS'); // Website title.
+define('SITE_HEADLINE', 'A custom blogging software by George Whitcher.'); //Website headline.
+define('METADESCRIPTION', 'A custom blogging software by George Whitcher.'); //METADESCRIPTION for SEO.
+define('METAKEYWORDS', 'gwpress, wordpress alternative, open source, php, george whitcher'); //METAKEYWORDS for SEO.
+define('DEFAULT_FEATURED_IMAGE', 'default.jpg'); //Default image when there is none.  Default is default.jpg.
+define('SITE_THEME', 'gwpress'); //Change to your website theme.  Default is gwpress (gwpress will be overwritten on updates)
+define('ADMIN_THEME', 'gwpress'); //Change to your custom admin theme.  Default is gwpress.
+define('CONTACT_EMAIL', 'admin@admin.com'); //Enter your email address for the contact form.
+define('CAPTCHA_KEY', 'XXXX'); //Paste your reCAPTCHA key here.
+define('CAPTCHA_SECRET', 'XXXX'); //Paste your reCAPTCHA secret here.
+define('SYSTEM_OS', 1); //1 = windows, 0 = linux
+define('COMPOSER_ACTIVE', 0); //1 = active, 0 = not active
+define('COMMENTS_ACTIVE', 1); //1 = active, 0 = not active
+define('DISQUS', ''); //Paste your unique DISQUS code here http://disqus.com
+define('GOOGLE_ANALYTICS', ''); //Paste your unique Google Analytics code here http://google.com/analytics
+
+//MYSQL
+define('MYSQL_SERVERNAME', 'localhost'); //MYSQL Host
+define('MYSQL_USERNAME', 'root'); //MYSQL Username
+define('MYSQL_PASSWORD', ''); //MYSQL Password
+define('MYSQL_DB', 'gwpress'); //MYSQL Database
+
+//DO NOT EDIT!
+define('COMPOSER_DIR', 'vendor/gwhitcher/gwpress/');
+$composer = (COMPOSER_ACTIVE == 1 ? COMPOSER_DIR : '');
+define('SITE_THEME_URL', BASE_URL.'/'.$composer.'gw-content/themes/'.SITE_THEME.'');
+define('ADMIN_THEME_URL', BASE_URL.'/'.$composer.'gw-admin/themes/'.ADMIN_THEME.'');
+define('BASE_DIR', __DIR__);
+define('UPLOAD_DIR', __DIR__.'/gw-content/uploads/');
