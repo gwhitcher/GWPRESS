@@ -187,3 +187,9 @@ ul.slide .instagram-small {
     cursor: pointer; cursor: hand;
     margin-bottom: 15px;
 }
+
+/* ADS */
+.advertisement {
+    text-align: center;
+    margin: 10px;
+}

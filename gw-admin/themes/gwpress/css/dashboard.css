@@ -184,3 +184,9 @@ body {
 .btn-success {
     margin-bottom: 5px;
 }
+
+/* ADS */
+.advertisement {
+    text-align: center;
+    margin: 10px;
+}
